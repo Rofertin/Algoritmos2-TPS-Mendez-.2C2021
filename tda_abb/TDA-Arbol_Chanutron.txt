@@ -1,0 +1,214 @@
+Output de tu entrega
+×
+rm -f ejemplo *.o pruebas_chanutron 2>&1
+gcc -g -std=c99 -Wall -Wconversion -Wtype-limits -pedantic -Werror -O2 src/*.c pruebas_chanutron.c -o pruebas_chanutron 2>&1
+valgrind --leak-check=full --track-origins=yes --show-reachable=yes --error-exitcode=2 ./pruebas_chanutron 2>&1
+==8928== Memcheck, a memory error detector
+==8928== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==8928== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==8928== Command: ./pruebas_chanutron
+==8928== 
+
+Pruebas de creación de ABB
+===========================
+✓ Se puede crear un abb
+✓ El abb se crea vacío
+✓ La cantidad de elementos es cero
+✓ El elemento raíz es NULL
+
+Pruebas de inserción
+=====================
+✓ Puedo insertar un elemento en el abb.
+✓ El elemento queda como valor raíz
+✓ El abb ya no está vacío.
+✓ La cantidad de elementos es 1
+✓ Puedo insertar un elemento menor que el primero.
+✓ El abb queda con un hijo izquierdo y sin hijo derecho.
+✓ El elemento queda a la izquierda de la raíz.
+✓ La cantidad de elementos es 2
+✓ Puedo insertar un elemento mayor que el primero.
+✓ El abb queda con un hijo izquierdo y un hijo derecho.
+✓ El elemento queda a la derecha de la raíz.
+✓ La cantidad de elementos es 3
+✓ Los tres elementos se encuentran en las posiciones esperadas.
+✓ Puedo insertar un elemento menor a los que estaban.
+✓ El hijo izquierdo del raíz ahora tiene un hijo izquierdo.
+✓ El elemento tiene el valor esperado.
+✓ La cantidad de elementos es 4
+✓ Puedo insertar un elemento mayor a los que estaban.
+✓ El hijo derecho del raíz ahora tiene un hijo derecho.
+✓ El elemento tiene el valor esperado.
+✓ La cantidad de elementos es 5
+
+Pruebas de búsqueda
+====================
+✓ Busco un elemento existente y lo encuentro
+✓ Busco un elemento existente y lo encuentro
+✓ Busco un elemento existente y lo encuentro
+✓ Busco un elemento existente y lo encuentro
+✓ Busco un elemento existente y lo encuentro
+✓ Busco un elemento existente y lo encuentro
+✓ Busco un elemento existente y lo encuentro
+✓ Busco un elemento existente y lo encuentro
+✓ Busco un elemento existente y lo encuentro
+✓ Busco un elemento existente y lo encuentro
+✓ Buscar un elemento inexistente devuelve NULL.
+
+Pruebas de borrado
+==================
+
+(SI QUERES QUE TE FUNCIONEN TENES QUE REEMPLAZAR POR EL PREDECESOR INORDEN CUANDO BORRAS CON DOS HIJOS)
+=======================================================================================================
+
+(LE DICEN MUCHAS VECES EN EL BARRIO 'EL MAYOR DE LOS MENORES')
+==============================================================
+✓ Puedo borrar un nodo hoja
+✓ El nodo eliminado no existe mas.
+✓ La cantidad de elementos es 6
+✓ Puedo borrar un nodo no hoja con un hijo.
+✓ El nodo que queda en su lugar es el nodo hijo.
+✓ La cantidad de elementos es 5
+✓ Puedo borrar un nodo con dos hijos.
+✓ El nodo que queda en su lugar es el predecesor inorden ¯\_(ツ)_/¯ .
+✓ Puedo borrar el nodo raíz (con dos hijos).
+✓ El nodo que queda en su lugar es el predecesor inorden ¯\_(ツ)_/¯ .
+✓ La cantidad de elementos es 3
+✓ A la izquierda de la raíz queda el elemento esperado.
+✓ A la derecha de la raíz queda el elemento esperado.
+✓ Puedo borrar el nodo raíz (con un hijo).
+✓ El nodo que queda en su lugar es el unico hijo.
+✓ A la izquierda de la raíz queda el elemento esperado.
+✓ A la derecha de la raíz queda el elemento esperado.
+✓ Puedo borrar otro nodo hoja.
+✓ A la izquierda de la raíz queda el elemento esperado.
+✓ A la derecha de la raíz queda el elemento esperado.
+✓ Puedo borrar el nodo raíz (sin hijos).
+✓ La cantidad de elementos es 0
+✓ No queda nadie en la raíz, abb vacío.
+✓ La funcion abb_vacio devuelve true.
+
+Pruebas de borrado (siempre borra la raíz)
+===========================================
+✓ Puedo borrar la raíz del abb.
+✓ El elemento que queda en la raíz es el predecesor inorden ¯\_(ツ)_/¯ .
+✓ Puedo borrar la raíz del abb.
+✓ El elemento que queda en la raíz es el predecesor inorden ¯\_(ツ)_/¯ .
+✓ Puedo borrar la raíz del abb.
+✓ El elemento que queda en la raíz es el predecesor inorden ¯\_(ツ)_/¯ .
+✓ La cantidad de elementos es 7
+✓ Pude eliminar todos los elementos restantes del abb siempre borrando la raíz.
+✓ El abb queda vacío.
+
+Pruebas de insertar/eliminar/buscar
+===================================
+✓ Borro la raiz del abb.
+✓ El elemento no existe mas en el abb.
+✓ Puedo volver a insertar el elemento.
+✓ El elemento existe en el abb y puedo buscarlo.
+✓ Borro la raiz del abb.
+✓ El elemento no existe mas en el abb.
+✓ Puedo volver a insertar el elemento.
+✓ El elemento existe en el abb y puedo buscarlo.
+✓ Borro la raiz del abb.
+✓ El elemento no existe mas en el abb.
+✓ Puedo volver a insertar el elemento.
+✓ El elemento existe en el abb y puedo buscarlo.
+✓ Borro la raiz del abb.
+✓ El elemento no existe mas en el abb.
+✓ Puedo volver a insertar el elemento.
+✓ El elemento existe en el abb y puedo buscarlo.
+✓ Borro la raiz del abb.
+✓ El elemento no existe mas en el abb.
+✓ Puedo volver a insertar el elemento.
+✓ El elemento existe en el abb y puedo buscarlo.
+✓ Se puede eliminar todos los elementos del abb sin problemas.
+✓ El abb queda vacío.
+✓ Se pueden volver a insertar elementos en el abb.
+✓ Busco un elemento y lo encuentro
+✓ Busco un elemento y lo encuentro
+✓ Busco un elemento y lo encuentro
+
+Pruebas de destructor
+=====================
+✓ Luego de llamar a abb_destruir_todo, se invoca el destructor la cantidad de veces correcta.
+✓ El destructor fue invocado sobre los elementos correctos
+
+Pruebas de recorridos e iterador interno
+========================================
+
+Recorrido inorden
+=================
+✓ La función de recorrido devuelve la cantidad de elementos esperados
+✓ Los elementos en el vector tienen el orden esperado.
+✓ Pido recorrer menos elementos de los existentes para hacer el recorrido.
+✓ Los elementos en el vector tienen el orden y cantidad esperado.
+✓ Pido recorrer mas elementos de los existentes para hacer el recorrido.
+✓ Los elementos en el vector tienen el orden y cantidad esperado.
+
+Recorrido preorden
+==================
+✓ La función de recorrido devuelve la cantidad de elementos esperados
+✓ Los elementos en el vector tienen el orden esperado.
+✓ Pido recorrer menos elementos de los existentes para hacer el recorrido.
+✓ Los elementos en el vector tienen el orden y cantidad esperado.
+✓ Pido recorrer mas elementos de los existentes para hacer el recorrido.
+✓ Los elementos en el vector tienen el orden y cantidad esperado.
+
+Recorrido postorden
+===================
+✓ La función de recorrido devuelve la cantidad de elementos esperados
+✓ Los elementos en el vector tienen el orden esperado. 
+✓ Pido recorrer menos elementos de los existentes para hacer el recorrido.
+✓ Los elementos en el vector tienen el orden y cantidad esperado.
+✓ Pido recorrer mas elementos de los existentes para hacer el recorrido.
+✓ Los elementos en el vector tienen el orden y cantidad esperado.
+
+Iterador interno inorden
+========================
+✓ El iterador interno devuelve la cantidad de elementos que se esperaba iterar.
+✓ Se invocó la función la cantidad de veces esperada.
+✓ Se recorrieron las claves en el orden esperado.
+✓ Cuando el iterador interno devuelve true, deja de iterar y devuelve la cantidad correcta.
+✓ Se invocó la función de iteracion la cantidad de veces esperada.
+
+Iterador interno preorden
+=========================
+✓ El iterador interno devuelve la cantidad de elementos que se esperaba iterar.
+✓ Se invocó la función la cantidad de veces esperada.
+✓ Se recorrieron las claves en el orden esperado.
+✓ Cuando el iterador interno devuelve true, deja de iterar y devuelve la cantidad correcta.
+✓ Se invocó la función de iteracion la cantidad de veces esperada.
+
+Iterador interno postorden
+==========================
+✓ El iterador interno devuelve la cantidad de elementos que se esperaba iterar.
+✓ Se invocó la función la cantidad de veces esperada.
+✓ Se recorrieron las claves en el orden esperado.
+✓ Cuando el iterador interno devuelve true, deja de iterar y devuelve la cantidad correcta.
+✓ Se invocó la función de iteracion la cantidad de veces esperada.
+
+Pruebas con NULL
+================
+✓ No puedo insertar nada en un abb nulo.
+✓ No puedo buscar nada en un abb nulo.
+✓ No puedo borrar nada de en un abb nulo.
+✓ Un abb nulo es vacío.
+✓ La cantidad de elementos de un abb NULL es 0
+✓ No puedo iterar un abb nulo.
+✓ No puedo iterar con una funcion nula.
+✓ Puedo iterar con puntero extra nulo.
+✓ Puedo insertar elementos null sin problemas
+✓ Puedo insertar elementos null sin problemas
+✓ Puedo insertar elementos null sin problemas
+
+---------------------------------
+141 pruebas corridas, 0 errores - OK
+==8928== 
+==8928== HEAP SUMMARY:
+==8928==     in use at exit: 0 bytes in 0 blocks
+==8928==   total heap usage: 105 allocs, 105 frees, 6,592 bytes allocated
+==8928== 
+==8928== All heap blocks were freed -- no leaks are possible
+==8928== 
+==8928== For counts of detected and suppressed errors, rerun with: -v
+==8928== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
